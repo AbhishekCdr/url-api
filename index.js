@@ -8,15 +8,6 @@ dotEnv.config();
 app.use(cors());
 app.use(express.json());
 
-// console.log(process.env.PORT)
-//local
-// const con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "password@123",
-// 	database: "shorturls"
-// });
-
 //remote
 const con = mysql.createConnection({
   host: process.env.HOST_NAME,
@@ -34,11 +25,6 @@ con.connect(function (error) {
   }
 });
 
-// app.get("/", function (request, response) {
-//   response.sendFile(__dirname + "/public/index.html");
-// });
-
-// app.use("");
 // UUID generator
 app.post("/api/create-short-url", function (request, response) {
   let uniqueID = Math.random()
