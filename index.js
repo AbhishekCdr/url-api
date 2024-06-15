@@ -8,6 +8,8 @@ dotEnv.config();
 app.use(cors());
 app.use(express.json());
 
+const PORT = process.env.PORT || 8080;
+
 //remote
 const con = mysql.createConnection({
   host: process.env.HOST_NAME,
@@ -103,6 +105,6 @@ app.get("/:shorturlid", function (request, response) {
 });
 
 // console.log(process.env.PORT);
-app.listen(8080, () => {
-  console.log("app running on port 8080");
+app.listen(PORT, () => {
+  console.log("app running on port", PORT);
 });
