@@ -77,7 +77,6 @@ app.get("/:shorturlid", function (request, response) {
   let sql = `SELECT * FROM links WHERE shorturlid='${shorturlid}' LIMIT 1`;
   try {
     con.query(sql, function (error, result) {
-      console.log(result);
       if (error) {
         response.status(500).json({
           status: "notok",
